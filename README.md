@@ -1,46 +1,182 @@
-# Astro Starter Kit: Basics
+# Portfolio Valentin - Développeur TypeScript Fullstack
 
-```sh
-pnpm create astro@latest -- --template basics
+Portfolio moderne et responsive créé avec Astro, présentant vos compétences, expériences et projets.
+
+## ✨ Fonctionnalités
+
+- 🎨 **Thème Clair/Sombre** - Toggle pour basculer entre les modes avec persistance
+- 📱 **Responsive** - Design adaptatif pour tous les écrans
+- 🚀 **Performance** - Optimisé avec Astro pour un chargement ultra-rapide
+- 📝 **Content Collections** - Gestion facile du contenu via fichiers Markdown/JSON
+- 🎭 **Animations** - Animations fluides et interactives
+- 🌐 **SEO Optimisé** - Métadonnées et structure pour un bon référencement
+
+## 🎯 Sections
+
+1. **Hero** - Introduction avec photo, bio et liens sociaux
+2. **Expériences** - Timeline de votre parcours professionnel
+3. **Compétences** - Grille de technologies avec icônes animées
+4. **Projets** - Showcase de vos réalisations
+5. **Contact** - Liens et email pour vous contacter
+
+## 🚀 Démarrage
+
+```bash
+# Installation des dépendances
+pnpm install
+
+# Lancement du serveur de développement
+pnpm dev
+
+# Build pour la production
+pnpm build
+
+# Preview du build
+pnpm preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ⚙️ Configuration
 
-## 🚀 Project Structure
+### Informations personnelles
 
-Inside of your Astro project, you'll see the following folders and files:
+Modifiez les informations dans `src/pages/index.astro` :
 
-```text
-/
+```typescript
+const profile = {
+  name: "Votre Nom",
+  title: "Votre Titre",
+  subtitle: "X ans d'expérience",
+  bio: "Votre description...",
+  email: "votre@email.com",
+  location: "Votre Ville, Pays",
+  github: "https://github.com/username",
+  linkedin: "https://linkedin.com/in/username",
+  cvUrl: "/cv.pdf",
+};
+```
+
+### Expériences
+
+Ajoutez/modifiez vos expériences dans `src/content/experiences/` :
+
+```markdown
+---
+company: "Nom de l'entreprise"
+position: "Votre poste"
+period: "2023 - Présent"
+order: 1
+technologies: ["Tech1", "Tech2", "Tech3"]
+---
+
+Description de vos missions et réalisations...
+```
+
+### Projets
+
+Ajoutez/modifiez vos projets dans `src/content/projects/` :
+
+```markdown
+---
+title: "Nom du Projet"
+image: "/projects/image.png"
+technologies: ["Tech1", "Tech2"]
+liveUrl: "https://demo.com"
+githubUrl: "https://github.com/user/repo"
+order: 1
+---
+
+Description du projet...
+```
+
+### Compétences
+
+Modifiez vos compétences dans `src/content/skills/` :
+
+```json
+{
+  "category": "Frontend",
+  "order": 1,
+  "items": [
+    { "name": "TypeScript", "level": 95 },
+    { "name": "React", "level": 90 }
+  ]
+}
+```
+
+**Note**: Le champ `level` n'est pas affiché visuellement mais peut être utilisé pour trier vos compétences.
+
+### CV
+
+Remplacez le fichier `public/cv.pdf` par votre CV au format PDF.
+
+### Images de projets
+
+Ajoutez vos images de projets dans le dossier `public/projects/`.
+
+## 🎨 Personnalisation du thème
+
+Les couleurs sont définies dans `src/layouts/Layout.astro` :
+
+```css
+:root {
+  /* Dark theme */
+  --color-bg: #0f0f1a;
+  --color-primary: #6366f1;
+  /* ... */
+}
+
+[data-theme="light"] {
+  /* Light theme */
+  --color-bg: #ffffff;
+  --color-primary: #4f46e5;
+  /* ... */
+}
+```
+
+## 📦 Structure du projet
+
+```
+portfolio-valentin/
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+│   ├── cv.pdf              # Votre CV
+│   └── projects/           # Images des projets
+├── src/
+│   ├── components/         # Composants Astro
+│   │   ├── Contact.astro
+│   │   ├── Experiences.astro
+│   │   ├── Hero.astro
+│   │   ├── Navbar.astro
+│   │   ├── Projects.astro
+│   │   └── Skills.astro
+│   ├── content/           # Content Collections
+│   │   ├── config.ts
+│   │   ├── experiences/   # Vos expériences (.md)
+│   │   ├── projects/      # Vos projets (.md)
+│   │   └── skills/        # Vos compétences (.json)
+│   ├── layouts/
+│   │   └── Layout.astro   # Layout principal
+│   └── pages/
+│       └── index.astro    # Page d'accueil
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚢 Déploiement
 
-## 🧞 Commands
+Ce site peut être déployé sur :
 
-All commands are run from the root of the project, from a terminal:
+- **Vercel** : `vercel deploy`
+- **Netlify** : Connectez votre repo GitHub
+- **GitHub Pages** : Configurez avec GitHub Actions
+- **Cloudflare Pages** : Déployez via le dashboard
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Commande de build : `pnpm build`  
+Dossier de sortie : `dist/`
 
-## 👀 Want to learn more?
+## 📝 Licence
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Ce projet est libre d'utilisation pour votre portfolio personnel.
+
+## 🤝 Support
+
+Pour toute question ou problème, n'hésitez pas à ouvrir une issue sur GitHub.
+

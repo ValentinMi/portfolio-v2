@@ -1,0 +1,206 @@
+---
+import { getCollection } from 'astro:content';
+
+const skills = await getCollection('skills');
+const sortedSkills = skills.sort((a, b) => a.data.order - b.data.order);
+
+// Mapping des icônes SVG pour chaque technologie (utilisant Simple Icons / Devicons)
+const techIcons: Record<string, string> = {
+  // Frontend
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Vue.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "Astro": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  // Backend
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "Express": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  "NestJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "GraphQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+  // Tools
+  "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "CI/CD": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
+  "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  "Testing": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+  "Agile": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
+};
+---
+
+<section class="skills" id="skills">
+  <div class="container">
+    <h2 class="section-title">Compétences</h2>
+
+    <div class="skills-grid">
+      {sortedSkills.map((skillGroup) => (
+        <div class="skill-category">
+          <h3 class="category-title">{skillGroup.data.category}</h3>
+          <div class="skill-list">
+            {skillGroup.data.items.map((skill, index) => (
+              <div class="skill-item" style={`--delay: ${index * 0.1}s`}>
+                <div class="skill-icon">
+                  <img
+                    src={techIcons[skill.name] || ""}
+                    alt={skill.name}
+                    loading="lazy"
+                  />
+                </div>
+                <span class="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    background: var(--color-bg);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-category {
+    background: var(--color-bg-alt);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .skill-category:hover {
+    border-color: var(--color-primary);
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    margin: 0 0 1.5rem;
+    color: var(--color-primary-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-title::before {
+    content: '';
+    width: 4px;
+    height: 1.25rem;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--color-bg);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+    width: calc(33.333% - 1rem);
+    min-width: 90px;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .skill-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+  }
+
+  .skill-item:hover .skill-icon {
+    animation: bounce 0.5s ease;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  .skill-name {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-item {
+      width: calc(50% - 1rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .skill-category {
+      padding: 1.5rem;
+    }
+
+    .skill-item {
+      width: calc(50% - 0.75rem);
+      padding: 0.75rem;
+    }
+
+    .skill-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .skill-name {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+

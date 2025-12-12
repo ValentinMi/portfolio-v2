@@ -1,11 +1,47 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Experiences from '../components/Experiences.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Configuration du profil - Modifiez ces valeurs avec vos informations
+const profile = {
+  name: "Valentin",
+  title: "Développeur TypeScript Fullstack",
+  subtitle: "6 ans d'expérience",
+  bio: "Passionné par le développement web moderne, je conçois des applications performantes et scalables. Expert TypeScript, je maîtrise aussi bien le frontend que le backend pour créer des expériences utilisateur exceptionnelles.",
+  email: "valentin@example.com",
+  location: "Paris, France",
+  github: "https://github.com/valentin",
+  linkedin: "https://linkedin.com/in/valentin",
+  cvUrl: "/cv.pdf",
+};
 ---
 
 <Layout>
-	<Welcome />
+  <Navbar />
+  <main>
+    <Hero
+      name={profile.name}
+      title={profile.title}
+      subtitle={profile.subtitle}
+      bio={profile.bio}
+      email={profile.email}
+      location={profile.location}
+      github={profile.github}
+      linkedin={profile.linkedin}
+      cvUrl={profile.cvUrl}
+    />
+    <Experiences />
+    <Skills />
+    <Projects />
+    <Contact
+      email={profile.email}
+      github={profile.github}
+      linkedin={profile.linkedin}
+    />
+  </main>
 </Layout>

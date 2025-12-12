@@ -1,0 +1,13 @@
+{
+  "category": "Backend",
+  "order": 2,
+  "items": [
+    { "name": "Node.js", "level": 90 },
+    { "name": "Express", "level": 85 },
+    { "name": "NestJS", "level": 80 },
+    { "name": "PostgreSQL", "level": 85 },
+    { "name": "MongoDB", "level": 80 },
+    { "name": "GraphQL", "level": 75 }
+  ]
+}
+
