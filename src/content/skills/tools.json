@@ -2,12 +2,16 @@
   "category": "Outils & DevOps",
   "order": 3,
   "items": [
-    { "name": "Git", "level": 90 },
-    { "name": "Docker", "level": 80 },
-    { "name": "CI/CD", "level": 75 },
-    { "name": "AWS", "level": 70 },
-    { "name": "Testing", "level": 85 },
-    { "name": "Agile", "level": 90 }
+    { "name": "Git" },
+    { "name": "Docker" },
+    { "name": "Linux" },
+    { "name": "CI/CD" },
+    { "name": "AWS" },
+    { "name": "GCP"},
+    { "name": "Testing"},
+    { "name": "Agile" },
+    { "name": "n8n" },
+    { "name": "Coolify" }
   ]
 }
 
