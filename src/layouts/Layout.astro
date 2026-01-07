@@ -1,12 +1,12 @@
 ---
 interface Props {
-  title?: string;
-  description?: string;
+	title?: string;
+	description?: string;
 }
 
 const {
-  title = "Valentin | Développeur TypeScript Fullstack",
-  description = "Portfolio de Valentin, développeur web TypeScript fullstack avec 6 ans d'expérience. React, Node.js, et plus."
+	title = "Valentin | Développeur TypeScript Fullstack",
+	description = "Portfolio de Valentin, développeur web TypeScript fullstack avec 6 ans d'expérience. React, Node.js, et plus.",
 } = Astro.props;
 ---
 
@@ -18,9 +18,12 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{title}</title>
 	</head>
 	<body>
@@ -30,27 +33,27 @@ const {
 
 <style is:global>
 	:root {
-		/* Kaiju No. 8 Palette */
-		--color-bg: #050505;       /* Deep Black */
-		--color-bg-alt: #0e0e12;   /* Slightly lighter black for cards/sections */
-		--color-primary: #32e0c4;  /* Kaiju Cyan/Greenish Blue */
-		--color-primary-light: #00fff2; /* Electric Cyan */
-		--color-secondary: #ff003c; /* Danger Red (Kaiju Eyes/Threat) - Accents */
+		--color-bg: #050505;
+		--color-bg-alt: #0e0e12;
+		--color-primary: #32e0c4;
+		--color-primary-light: #00fff2;
+		--color-secondary: #2c84ff;
 		--color-text: #ffffff;
 		--color-text-muted: #a0a0b0;
-		--color-border: rgba(45, 226, 230, 0.15); /* Subtle Cyan Border */
-		
-		--font-sans: 'Inter', system-ui, sans-serif;
-		--font-heading: 'Poppins', system-ui, sans-serif;
+		--color-border: rgba(45, 226, 230, 0.15);
+
+		--font-sans: "Inter", system-ui, sans-serif;
+		--font-heading: "Poppins", system-ui, sans-serif;
 		--max-width: 1200px;
 		--section-padding: 6rem 1.5rem;
-		
+
 		--glow-primary: 0 0 20px rgba(50, 224, 196, 0.3);
 		--glow-text: 0 0 10px rgba(0, 255, 242, 0.5);
 	}
 
-
-	*, *::before, *::after {
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 	}
 
@@ -58,25 +61,33 @@ const {
 		scroll-behavior: smooth;
 	}
 
-	html, body {
+	html,
+	body {
 		margin: 0;
 		padding: 0;
 		width: 100%;
 		min-height: 100%;
 		background-color: var(--color-bg);
 		/* Cyberpunk/Kaiju Grid Background */
-		background-image: 
+		background-image:
 			linear-gradient(rgba(50, 224, 196, 0.03) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(50, 224, 196, 0.03) 1px, transparent 1px);
+			linear-gradient(
+				90deg,
+				rgba(50, 224, 196, 0.03) 1px,
+				transparent 1px
+			);
 		background-size: 40px 40px;
 		background-position: center top;
-		
+
 		color: var(--color-text);
 		font-family: var(--font-sans);
 		line-height: 1.6;
 	}
 
-	h1, h2, h3, h4 {
+	h1,
+	h2,
+	h3,
+	h4 {
 		font-family: var(--font-heading);
 		line-height: 1.2;
 		margin: 0;
@@ -107,7 +118,11 @@ const {
 		font-size: clamp(2rem, 5vw, 3rem);
 		margin-bottom: 3rem;
 		text-align: center;
-		background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
+		background: linear-gradient(
+			135deg,
+			var(--color-primary-light),
+			var(--color-secondary)
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -128,7 +143,11 @@ const {
 	}
 
 	.btn-primary {
-		background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+		background: linear-gradient(
+			135deg,
+			var(--color-primary),
+			var(--color-primary-light)
+		);
 		color: white;
 	}
 

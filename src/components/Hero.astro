@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import mePic from '../assets/me.png';
+import { Image } from "astro:assets";
+import mePic from "../assets/me.png";
 
 interface Props {
   name: string;
@@ -13,7 +13,8 @@ interface Props {
   linkedin?: string;
   cvUrl: string;
 }
-const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } = Astro.props;
+const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
+  Astro.props;
 ---
 
 <section class="hero" id="hero">
@@ -28,11 +29,35 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
 
       <div class="hero-info">
         <span class="info-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+            ></path><circle cx="12" cy="10" r="3"></circle></svg
+          >
           {location}
         </span>
         <span class="info-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+              d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+          >
           {email}
         </span>
       </div>
@@ -40,7 +65,23 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
       <div class="hero-actions">
         <a href={cvUrl} download class="btn btn-primary">
           <span class="btn-content">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+              ></path><polyline points="7 10 12 15 17 10"></polyline><line
+                x1="12"
+                x2="12"
+                y1="15"
+                y2="3"></line></svg
+            >
             Télécharger CV
           </span>
         </a>
@@ -50,16 +91,46 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
       </div>
 
       <div class="social-links">
-        {github && (
-          <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-        )}
-        {linkedin && (
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-        )}
+        {
+          github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+          )
+        }
+        {
+          linkedin && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+          )
+        }
       </div>
     </div>
 
@@ -70,7 +141,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
           <div class="circle c2"></div>
         </div>
         <div class="avatar-placeholder">
-          <Image class="avatar-pic" src={mePic} alt="me" loading="eager"  />
+          <Image class="avatar-pic" src={mePic} alt="me" loading="eager" />
         </div>
         <div class="avatar-glow"></div>
       </div>
@@ -80,17 +151,17 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
 
 <script>
   // Network Background Animation (restored)
-  const canvas = document.getElementById('network-canvas') as HTMLCanvasElement;
+  const canvas = document.getElementById("network-canvas") as HTMLCanvasElement;
   if (canvas) {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     let width = window.innerWidth;
     let height = window.innerHeight;
-    
+
     // Config
     const particleCount = 40;
     const connectionDistance = 150;
     const mouseParams = { x: 0, y: 0, radius: 200 };
-    
+
     canvas.width = width;
     canvas.height = height;
 
@@ -116,32 +187,32 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
         // Bounce off edges
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
-        
+
         // Mouse interaction
         const dx = mouseParams.x - this.x;
         const dy = mouseParams.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < mouseParams.radius) {
-           const angle = Math.atan2(dy, dx);
-           const force = (mouseParams.radius - distance) / mouseParams.radius;
-           const pushX = Math.cos(angle) * force * 2; // Push away slightly
-           const pushY = Math.sin(angle) * force * 2;
-           this.x -= pushX;
-           this.y -= pushY;
+          const angle = Math.atan2(dy, dx);
+          const force = (mouseParams.radius - distance) / mouseParams.radius;
+          const pushX = Math.cos(angle) * force * 2; // Push away slightly
+          const pushY = Math.sin(angle) * force * 2;
+          this.x -= pushX;
+          this.y -= pushY;
         }
       }
 
       draw() {
-          if (!ctx) return;
+        if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = '#32e0c4'; // Primary Color
+        ctx.fillStyle = "#32e0c4"; // Primary Color
         ctx.fill();
-        
+
         // Glow
         ctx.shadowBlur = 10;
-        ctx.shadowColor = '#32e0c4';
+        ctx.shadowColor = "#32e0c4";
       }
     }
 
@@ -157,29 +228,29 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
-      
+
       particles.forEach((p, index) => {
         p.update();
         p.draw();
-        
+
         // Connections
         for (let j = index + 1; j < particles.length; j++) {
-           const p2 = particles[j];
-           const dx = p.x - p2.x;
-           const dy = p.y - p2.y;
-           const dist = Math.sqrt(dx * dx + dy * dy);
-           
-           if (dist < connectionDistance) {
-             ctx.beginPath();
-             ctx.strokeStyle = `rgba(50, 224, 196, ${1 - dist / connectionDistance})`; // Fade out
-             ctx.lineWidth = 1;
-             ctx.moveTo(p.x, p.y);
-             ctx.lineTo(p2.x, p2.y);
-             ctx.stroke();
-           }
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < connectionDistance) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(50, 224, 196, ${1 - dist / connectionDistance})`; // Fade out
+            ctx.lineWidth = 1;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
         }
       });
-      
+
       requestAnimationFrame(animate);
     }
 
@@ -187,18 +258,18 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     animate();
 
     // Resize
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
       init();
     });
-    
+
     // Mouse Move
-    window.addEventListener('mousemove', (e) => {
-        mouseParams.x = e.x;
-        mouseParams.y = e.y;
+    window.addEventListener("mousemove", (e) => {
+      mouseParams.x = e.x;
+      mouseParams.y = e.y;
     });
   }
 </script>
@@ -212,7 +283,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     position: relative;
     overflow: hidden;
   }
-  
+
   #network-canvas {
     position: absolute;
     top: 0;
@@ -238,7 +309,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
 
   .greeting {
     color: var(--color-primary);
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     font-size: 1rem;
     margin: 0 0 1rem;
     letter-spacing: 2px;
@@ -248,7 +319,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
 
   /* Clean High-Tech Name */
   .name {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 7.5vw, 4.5rem);
     margin: 0 0 0.5rem;
     font-weight: 800;
     color: var(--color-text);
@@ -258,7 +329,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     background: linear-gradient(180deg, #fff 0%, #b0b0b0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 0 rgba(0,0,0,0.5));
+    filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.5));
   }
 
   .title {
@@ -315,7 +386,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
-  
+
   /* Tech Buttons */
   .btn {
     position: relative;
@@ -329,7 +400,14 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     text-decoration: none;
     overflow: hidden;
     transition: all 0.3s ease;
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
   }
 
   .btn-primary {
@@ -337,7 +415,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     color: #000;
     border: none;
   }
-  
+
   .btn-primary:hover {
     background: var(--color-primary-light);
     box-shadow: 0 0 30px var(--color-primary);
@@ -355,7 +433,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     box-shadow: 0 0 20px rgba(50, 224, 196, 0.2);
     text-shadow: 0 0 8px var(--color-primary);
   }
-  
+
   .btn-content {
     display: flex;
     align-items: center;
@@ -378,7 +456,14 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     background: rgba(255, 255, 255, 0.02);
     color: var(--color-text-muted);
     transition: all 0.3s ease;
-    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    clip-path: polygon(
+      8px 0,
+      100% 0,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      0 100%,
+      0 8px
+    );
   }
 
   .social-links a:hover {
@@ -406,7 +491,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     align-items: center;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  
+
   .avatar-container:hover {
     transform: scale(1.05);
   }
@@ -422,11 +507,13 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     box-shadow: 0 0 20px rgba(50, 224, 196, 0.3);
     transition: all 0.5s ease;
   }
-  
+
   /* Photo Hover Effect - Power Up */
   .avatar-container:hover .avatar-placeholder {
     border-color: #fff;
-    box-shadow: 0 0 50px var(--color-primary), 0 0 100px var(--color-primary);
+    box-shadow:
+      0 0 50px var(--color-primary),
+      0 0 100px var(--color-primary);
   }
 
   .avatar-pic {
@@ -435,12 +522,12 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     object-fit: cover;
     transition: transform 0.5s ease;
   }
-  
+
   .avatar-container:hover .avatar-pic {
     transform: scale(1.1);
     filter: contrast(1.1) brightness(1.1);
   }
-  
+
   .avatar-circles {
     position: absolute;
     top: 50%;
@@ -451,7 +538,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     z-index: 0;
     pointer-events: none;
   }
-  
+
   .circle {
     position: absolute;
     top: 50%;
@@ -461,7 +548,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     border: 1px solid var(--color-primary);
     transition: all 0.5s ease;
   }
-  
+
   .c1 {
     width: 340px;
     height: 340px;
@@ -469,7 +556,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     opacity: 0.3;
     animation: spin 30s linear infinite;
   }
-  
+
   .c2 {
     width: 380px;
     height: 380px;
@@ -479,7 +566,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     border-left-color: transparent;
     animation: spin-rev 20s linear infinite;
   }
-  
+
   .avatar-container:hover .c1 {
     width: 360px;
     height: 360px;
@@ -487,7 +574,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     border-color: #fff;
     animation-duration: 10s;
   }
-  
+
   .avatar-container:hover .c2 {
     width: 400px;
     height: 400px;
@@ -504,13 +591,17 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      var(--color-primary) 0%,
+      transparent 70%
+    );
     opacity: 0.2;
     z-index: 1;
     filter: blur(40px);
     transition: all 0.5s ease;
   }
-  
+
   .avatar-container:hover .avatar-glow {
     opacity: 0.6;
     width: 400px;
@@ -518,13 +609,21 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
   }
 
   @keyframes spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
-  
+
   @keyframes spin-rev {
-    from { transform: translate(-50%, -50%) rotate(360deg); }
-    to { transform: translate(-50%, -50%) rotate(0deg); }
+    from {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
   }
 
   @media (max-width: 900px) {
@@ -537,13 +636,13 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
       order: -1;
       margin-bottom: 2rem;
     }
-    
+
     .hero-text {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    
+
     .subtitle {
       border-left: none;
       border-bottom: 3px solid var(--color-secondary);
