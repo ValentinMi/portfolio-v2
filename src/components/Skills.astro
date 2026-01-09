@@ -1,43 +1,65 @@
 ---
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
-const skills = await getCollection('skills');
+const skills = await getCollection("skills");
 const sortedSkills = skills.sort((a, b) => a.data.order - b.data.order);
 
 const techIcons: Record<string, string> = {
   // Frontend
-  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "Vue.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  "Astro": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
-  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  "Svelte": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
-  "SCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
-  "Playwright": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg",
-  "TanStack": "https://tanstack.com/images/logos/logo-color-600.png",
+  TypeScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  React:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Vue.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  "Next.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  Astro:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
+  Tailwind:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  Svelte:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+  SCSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+  Playwright:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg",
+  TanStack: "https://tanstack.com/images/logos/logo-color-600.png",
   // Backend
-  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "Express": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-  "NestJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
-  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  "GraphQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
-  "AdonisJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/adonisjs/adonisjs-original.svg",
-  "Strapi": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/strapi.svg",
-  "Elysia": "https://elysiajs.com/assets/elysia.svg",
+  "Node.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  Express:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  NestJS:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+  PostgreSQL:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  MongoDB:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  GraphQL:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+  AdonisJS:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/adonisjs/adonisjs-original.svg",
+  Strapi:
+    "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/strapi.svg",
+  Elysia: "https://elysiajs.com/assets/elysia.svg",
   // Tools
-  "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  "CI/CD": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
-  "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-  "Testing": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
-  "Agile": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
-  "Linux": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-  "GCP": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-  "n8n": "https://avatars.githubusercontent.com/u/45487711?s=200&v=4",
-  "Coolify": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/coolify.svg",
+  Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  Docker:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "CI/CD":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
+  AWS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  Testing:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+  Agile:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
+  Linux:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  GCP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+  n8n: "https://avatars.githubusercontent.com/u/45487711?s=200&v=4",
+  Coolify:
+    "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/coolify.svg",
 };
 ---
 
@@ -46,26 +68,28 @@ const techIcons: Record<string, string> = {
     <h2 class="section-title">Compétences</h2>
 
     <div class="skills-grid">
-      {sortedSkills.map((skillGroup) => (
-        <div class="skill-category">
-          <h3 class="category-title">{skillGroup.data.category}</h3>
-          <div class="skill-list">
-            {skillGroup.data.items.map((skill, index) => (
-              <div class="skill-item" style={`--delay: ${index * 0.1}s`}>
-                <div class="skill-icon">
-                  <Image
-                    src={techIcons[skill.name]}
-                    alt={skill.name}
-                    inferSize={true}
-                    loading="lazy"
-                  />
+      {
+        sortedSkills.map((skillGroup) => (
+          <div class="skill-category">
+            <h3 class="category-title">{skillGroup.data.category}</h3>
+            <div class="skill-list">
+              {skillGroup.data.items.map((skill, index) => (
+                <div class="skill-item" style={`--delay: ${index * 0.1}s`}>
+                  <div class="skill-icon">
+                    <Image
+                      src={techIcons[skill.name]}
+                      alt={skill.name}
+                      inferSize={true}
+                      loading="lazy"
+                    />
+                  </div>
+                  <span class="skill-name">{skill.name}</span>
                 </div>
-                <span class="skill-name">{skill.name}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -92,10 +116,10 @@ const techIcons: Record<string, string> = {
     position: relative;
     overflow: hidden;
   }
-  
+
   /* Tech corner accents - Static Industrial */
   .skill-category::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -106,9 +130,9 @@ const techIcons: Record<string, string> = {
     opacity: 0.3;
     transition: opacity 0.2s ease;
   }
-  
+
   .skill-category::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     right: 0;
@@ -125,7 +149,7 @@ const techIcons: Record<string, string> = {
     border-color: var(--color-primary);
     background: rgba(10, 10, 15, 0.9);
   }
-  
+
   .skill-category:hover::before,
   .skill-category:hover::after {
     opacity: 1; /* Just light up, don't move */
@@ -145,7 +169,7 @@ const techIcons: Record<string, string> = {
   }
 
   .category-title::before {
-    content: '';
+    content: "";
     width: 8px;
     height: 8px;
     background: var(--color-secondary);
@@ -156,8 +180,8 @@ const techIcons: Record<string, string> = {
   .skill-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
+    gap: 1.5rem; /* Increased gap */
+    justify-content: center; /* Center items */
   }
 
   .skill-item {
@@ -174,8 +198,9 @@ const techIcons: Record<string, string> = {
     animation: fadeInUp 0.5s ease forwards;
     animation-delay: var(--delay);
     opacity: 0;
-    width: calc(33.333% - 0.67rem);
-    min-width: 90px;
+    width: 100px; /* Fixed minimal width base */
+    flex: 1 1 100px; /* Grow and shrink properly */
+    max-width: 140px; /* Prevent becoming too wide */
     position: relative;
   }
 
@@ -192,16 +217,22 @@ const techIcons: Record<string, string> = {
 
   /* Item Hover: High Contrast Frame, No Movement */
   @keyframes bumpJump {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .skill-item:hover {
     border-color: var(--color-primary);
     background: rgba(50, 224, 196, 0.05);
   }
-  
+
   .skill-item:hover .skill-icon img {
     /* "Petit rebond" - Jump up and down */
     animation: bumpJump 0.3s ease-in-out;
@@ -234,7 +265,7 @@ const techIcons: Record<string, string> = {
     letter-spacing: 0.5px;
     transition: color 0.1s ease-out; /* Speed up */
   }
-  
+
   .skill-item:hover .skill-name {
     color: var(--color-primary);
     font-weight: 600;
@@ -244,16 +275,5 @@ const techIcons: Record<string, string> = {
     .skills-grid {
       grid-template-columns: 1fr;
     }
-
-    .skill-item {
-      width: calc(33.333% - 0.67rem);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .skill-item {
-      width: calc(50% - 0.5rem);
-    }
   }
 </style>
-
