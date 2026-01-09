@@ -1,83 +1,83 @@
-# Portfolio Valentin - Développeur TypeScript Fullstack
+# Portfolio Valentin - Fullstack TypeScript Developer
 
-Portfolio moderne et responsive créé avec Astro, présentant vos compétences, expériences et projets.
+Modern and responsive portfolio built with Astro, showcasing your skills, experiences, and projects.
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- 🎨 **Thème Clair/Sombre** - Toggle pour basculer entre les modes avec persistance
-- 📱 **Responsive** - Design adaptatif pour tous les écrans
-- 🚀 **Performance** - Optimisé avec Astro pour un chargement ultra-rapide
-- 📝 **Content Collections** - Gestion facile du contenu via fichiers Markdown/JSON
-- 🎭 **Animations** - Animations fluides et interactives
-- 🌐 **SEO Optimisé** - Métadonnées et structure pour un bon référencement
+- 🎨 **Light/Dark Theme** - Toggle between modes with persistence
+- 📱 **Responsive** - Adaptive design for all screen sizes
+- 🚀 **Performance** - Optimized with Astro for ultra-fast loading
+- 📝 **Content Collections** - Easy content management via Markdown/JSON files
+- 🎭 **Animations** - Smooth and interactive animations
+- 🌐 **SEO Optimized** - Metadata and structure for great search ranking
 
 ## 🎯 Sections
 
-1. **Hero** - Introduction avec photo, bio et liens sociaux
-2. **Expériences** - Timeline de votre parcours professionnel
-3. **Compétences** - Grille de technologies avec icônes animées
-4. **Projets** - Showcase de vos réalisations
-5. **Contact** - Liens et email pour vous contacter
+1. **Hero** - Introduction with photo, bio, and social links
+2. **Experiences** - Timeline of your professional journey
+3. **Skills** - Technology grid with animated icons
+4. **Projects** - Showcase of your work
+5. **Contact** - Links and email to get in touch
 
-## 🚀 Démarrage
+## 🚀 Getting Started
 
 ```bash
-# Installation des dépendances
+# Install dependencies
 pnpm install
 
-# Lancement du serveur de développement
+# Start the development server
 pnpm dev
 
-# Build pour la production
+# Build for production
 pnpm build
 
-# Preview du build
+# Preview the build
 pnpm preview
 ```
 
 ## ⚙️ Configuration
 
-### Informations personnelles
+### Personal Information
 
-Modifiez les informations dans `src/pages/index.astro` :
+Edit the information in `src/pages/index.astro`:
 
 ```typescript
 const profile = {
-  name: "Votre Nom",
-  title: "Votre Titre",
-  subtitle: "X ans d'expérience",
-  bio: "Votre description...",
-  email: "votre@email.com",
-  location: "Votre Ville, Pays",
+  name: "Your Name",
+  title: "Your Title",
+  subtitle: "X years of experience",
+  bio: "Your description...",
+  email: "your@email.com",
+  location: "Your City, Country",
   github: "https://github.com/username",
   linkedin: "https://linkedin.com/in/username",
   cvUrl: "/cv.pdf",
 };
 ```
 
-### Expériences
+### Experiences
 
-Ajoutez/modifiez vos expériences dans `src/content/experiences/` :
+Add/edit your experiences in `src/content/experiences/`:
 
 ```markdown
 ---
-company: "Nom de l'entreprise"
-position: "Votre poste"
-period: "2023 - Présent"
+company: "Company Name"
+position: "Your Position"
+period: "2023 - Present"
 order: 1
 technologies: ["Tech1", "Tech2", "Tech3"]
 ---
 
-Description de vos missions et réalisations...
+Description of your missions and achievements...
 ```
 
-### Projets
+### Projects
 
-Ajoutez/modifiez vos projets dans `src/content/projects/` :
+Add/edit your projects in `src/content/projects/`:
 
 ```markdown
 ---
-title: "Nom du Projet"
+title: "Project Name"
 image: "/projects/image.png"
 technologies: ["Tech1", "Tech2"]
 liveUrl: "https://demo.com"
@@ -85,12 +85,12 @@ githubUrl: "https://github.com/user/repo"
 order: 1
 ---
 
-Description du projet...
+Project description...
 ```
 
-### Compétences
+### Skills
 
-Modifiez vos compétences dans `src/content/skills/` :
+Edit your skills in `src/content/skills/`:
 
 ```json
 {
@@ -103,19 +103,19 @@ Modifiez vos compétences dans `src/content/skills/` :
 }
 ```
 
-**Note**: Le champ `level` n'est pas affiché visuellement mais peut être utilisé pour trier vos compétences.
+**Note**: The `level` field is not visually displayed but can be used to sort your skills.
 
-### CV
+### Resume
 
-Remplacez le fichier `public/cv.pdf` par votre CV au format PDF.
+Replace the file `public/cv.pdf` with your resume in PDF format.
 
-### Images de projets
+### Project Images
 
-Ajoutez vos images de projets dans le dossier `public/projects/`.
+Add your project images in the `public/projects/` folder.
 
-## 🎨 Personnalisation du thème
+## 🎨 Theme Customization
 
-Les couleurs sont définies dans `src/layouts/Layout.astro` :
+Colors are defined in `src/layouts/Layout.astro`:
 
 ```css
 :root {
@@ -133,15 +133,15 @@ Les couleurs sont définies dans `src/layouts/Layout.astro` :
 }
 ```
 
-## 📦 Structure du projet
+## 📦 Project Structure
 
 ```
 portfolio-valentin/
 ├── public/
-│   ├── cv.pdf              # Votre CV
-│   └── projects/           # Images des projets
+│   ├── cv.pdf              # Your resume
+│   └── projects/           # Project images
 ├── src/
-│   ├── components/         # Composants Astro
+│   ├── components/         # Astro components
 │   │   ├── Contact.astro
 │   │   ├── Experiences.astro
 │   │   ├── Hero.astro
@@ -150,33 +150,32 @@ portfolio-valentin/
 │   │   └── Skills.astro
 │   ├── content/           # Content Collections
 │   │   ├── config.ts
-│   │   ├── experiences/   # Vos expériences (.md)
-│   │   ├── projects/      # Vos projets (.md)
-│   │   └── skills/        # Vos compétences (.json)
+│   │   ├── experiences/   # Your experiences (.md)
+│   │   ├── projects/      # Your projects (.md)
+│   │   └── skills/        # Your skills (.json)
 │   ├── layouts/
-│   │   └── Layout.astro   # Layout principal
+│   │   └── Layout.astro   # Main layout
 │   └── pages/
-│       └── index.astro    # Page d'accueil
+│       └── index.astro    # Home page
 └── package.json
 ```
 
-## 🚢 Déploiement
+## 🚢 Deployment
 
-Ce site peut être déployé sur :
+This site can be deployed on:
 
-- **Vercel** : `vercel deploy`
-- **Netlify** : Connectez votre repo GitHub
-- **GitHub Pages** : Configurez avec GitHub Actions
-- **Cloudflare Pages** : Déployez via le dashboard
+- **Vercel**: `vercel deploy`
+- **Netlify**: Connect your GitHub repo
+- **GitHub Pages**: Configure with GitHub Actions
+- **Cloudflare Pages**: Deploy via the dashboard
 
-Commande de build : `pnpm build`  
-Dossier de sortie : `dist/`
+Build command: `pnpm build`  
+Output folder: `dist/`
 
-## 📝 Licence
+## 📝 License
 
-Ce projet est libre d'utilisation pour votre portfolio personnel.
+This project is free to use for your personal portfolio.
 
 ## 🤝 Support
 
-Pour toute question ou problème, n'hésitez pas à ouvrir une issue sur GitHub.
-
+For any questions or issues, feel free to open an issue on GitHub.
