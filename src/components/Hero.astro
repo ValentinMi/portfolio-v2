@@ -162,6 +162,13 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     const connectionDistance = isMobile() ? 120 : 150;
     const mouseParams = { x: 0, y: 0, radius: 200 };
 
+    interface Impact {
+      x: number;
+      life: number;
+      size: number;
+    }
+    let impacts: Impact[] = [];
+
     function setupCanvas() {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = width * dpr;
@@ -192,7 +199,15 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
         this.y += this.vy;
 
         if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
+        
+        // Bottom collision with neon effect
+        if (this.y > height) {
+          this.y = height; // Clamp to bottom
+          this.vy *= -1; // Bounce up
+          impacts.push({ x: this.x, life: 1.0, size: this.size }); // Register impact
+        }
+        
+        if (this.y < 0) this.vy *= -1;
 
         const dx = mouseParams.x - this.x;
         const dy = mouseParams.y - this.y;
@@ -229,9 +244,58 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
       }
     }
 
+    function drawImpacts() {
+      if (!ctx) return;
+      
+      // Update and draw impacts
+      for (let i = impacts.length - 1; i >= 0; i--) {
+        const impact = impacts[i];
+        impact.life -= 0.03; // Fade out speed
+
+        if (impact.life <= 0) {
+          impacts.splice(i, 1);
+          continue;
+        }
+
+        const opacity = impact.life;
+        const scale = impact.size * 20; // Scale based on particle size
+        
+        // Draw glow line segment
+        const gradient = ctx.createLinearGradient(
+          impact.x - scale * 3, height, 
+          impact.x + scale * 3, height
+        );
+        gradient.addColorStop(0, `rgba(50, 224, 196, 0)`);
+        gradient.addColorStop(0.5, `rgba(50, 224, 196, ${opacity})`);
+        gradient.addColorStop(1, `rgba(50, 224, 196, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(impact.x - scale * 3, height - 2, scale * 6, 2);
+
+        // Draw burst glow
+        const radial = ctx.createRadialGradient(
+          impact.x, height, 0,
+          impact.x, height, scale
+        );
+        radial.addColorStop(0, `rgba(50, 224, 196, ${opacity * 0.8})`);
+        radial.addColorStop(1, "rgba(50, 224, 196, 0)");
+        
+        ctx.fillStyle = radial;
+        ctx.fillRect(impact.x - scale, height - scale, scale * 2, scale);
+      }
+    }
+
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
+
+      // Draw persistent bottom neon line
+      ctx.beginPath();
+      ctx.moveTo(0, height - 1);
+      ctx.lineTo(width, height - 1);
+      ctx.strokeStyle = "rgba(50, 224, 196, 0.3)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
 
       particles.forEach((p, index) => {
         p.update();
@@ -253,6 +317,8 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
           }
         }
       });
+
+      drawImpacts(); // Draw the neon effects on top
 
       requestAnimationFrame(animate);
     }
