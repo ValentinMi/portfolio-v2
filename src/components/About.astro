@@ -271,7 +271,7 @@ const { data } = aboutEntry;
 
   .services-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 4rem;
   }
@@ -349,6 +349,9 @@ const { data } = aboutEntry;
 
   @media (max-width: 768px) {
     .cards-container {
+      grid-template-columns: 1fr;
+    }
+    .services-list {
       grid-template-columns: 1fr;
     }
     .cta-container {

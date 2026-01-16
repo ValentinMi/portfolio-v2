@@ -17,12 +17,16 @@
   ],
   "services": [
     {
+      "title": "Site Vitrine & E-commerce",
+      "description": "Création de sites performants, SEO-friendly, avec des CMS Headless facile à configurer."
+    },
+    {
       "title": "Lancement de Produits (MVP)",
       "description": "Développement rapide et robuste d'applications SaaS et B2B."
     },
     {
       "title": "Refonte & Migration",
-      "description": "Modernisation d'applications vieillissantes vers des stacks React.js/Node modernes."
+      "description": "Modernisation d'applications vieillissantes vers des stacks techniques modernes."
     },
     {
       "title": "Infrastructure",
