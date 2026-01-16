@@ -10,7 +10,7 @@ const { data } = aboutEntry;
     <div class="intro-grid">
       <div class="intro-content">
         <h2 class="section-title">
-          {data.title.split(' ').map((word, i) => i === 0 ? <span class="highlight">{word} </span> : word + ' ')}
+          {data.title.split(' ').map((word: unknown, i: number) => i === 0 ? <span class="highlight">{word} </span> : word + ' ')}
         </h2>
         <p class="lead">
           {data.hook}
@@ -48,7 +48,7 @@ const { data } = aboutEntry;
     </div>
 
     <div class="cards-container">
-      {data.clientTypes.map(client => (
+      {data.clientTypes.map((client): { icon: unknown; title: unknown; description: unknown; } => (
         <div class="card">
           <div class="card-icon">{client.icon}</div>
           <h3>{client.title}</h3>
@@ -58,7 +58,7 @@ const { data } = aboutEntry;
     </div>
 
     <div class="services-list">
-      {data.services.map(service => (
+      {data.services.map((service): { title: unknown; description: unknown; } => (
         <div class="service-item">
           <h4>{service.title}</h4>
           <p>{service.description}</p>
@@ -70,10 +70,6 @@ const { data } = aboutEntry;
       <div class="cta-content">
         <p class="cta-text">
           {data.cta.text}
-          <br />
-          <span class="stack-highlight"
-            >Stack technique : {data.cta.stack}</span
-          >
         </p>
         <p class="cta-question">
           {data.cta.question}
