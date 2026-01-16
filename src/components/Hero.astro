@@ -245,7 +245,7 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
     }
 
     function drawImpacts() {
-      if (!ctx) return;
+      if (!ctx || isMobile()) return;
       
       // Update and draw impacts
       for (let i = impacts.length - 1; i >= 0; i--) {
@@ -289,13 +289,15 @@ const { name, title, subtitle, bio, email, location, github, linkedin, cvUrl } =
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
-      // Draw persistent bottom neon line
-      ctx.beginPath();
-      ctx.moveTo(0, height - 1);
-      ctx.lineTo(width, height - 1);
-      ctx.strokeStyle = "rgba(50, 224, 196, 0.3)";
-      ctx.lineWidth = 1;
-      ctx.stroke();
+      // Draw persistent bottom neon line only on desktop
+      if (!isMobile()) {
+        ctx.beginPath();
+        ctx.moveTo(0, height - 1);
+        ctx.lineTo(width, height - 1);
+        ctx.strokeStyle = "rgba(50, 224, 196, 0.3)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
 
       particles.forEach((p, index) => {
         p.update();
