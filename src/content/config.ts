@@ -34,8 +34,33 @@ const skillsCollection = defineCollection({
   }),
 });
 
+const aboutCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    hook: z.string(),
+    intro: z.string(),
+    experience: z.string(),
+    clientTypes: z.array(z.object({
+      title: z.string(),
+      icon: z.string(),
+      description: z.string()
+    })),
+    services: z.array(z.object({
+      title: z.string(),
+      description: z.string()
+    })),
+    cta: z.object({
+      text: z.string(),
+      stack: z.string(),
+      question: z.string()
+    })
+  })
+});
+
 export const collections = {
   experiences: experiencesCollection,
   projects: projectsCollection,
   skills: skillsCollection,
+  about: aboutCollection,
 };

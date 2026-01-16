@@ -1,0 +1,362 @@
+---
+import { getEntry } from "astro:content";
+
+const aboutEntry = await getEntry("about", "main");
+const { data } = aboutEntry;
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-content">
+        <h2 class="section-title">
+          {data.title.split(' ').map((word, i) => i === 0 ? <span class="highlight">{word} </span> : word + ' ')}
+        </h2>
+        <p class="lead">
+          {data.hook}
+        </p>
+        <p>
+          {data.intro}
+        </p>
+        <p>
+          {data.experience}
+        </p>
+      </div>
+      <div class="intro-visual">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="code-content">
+            <span class="keyword">const</span> <span class="variable">mission</span>
+            = <span class="keyword">new</span> <span class="class"
+              >Project</span
+            >(&#123;
+            <br />&nbsp;&nbsp;goal: <span class="string"
+              >"Excellence Technique"</span
+            >,<br />&nbsp;&nbsp;stack: [<span class="string">"React"</span>, <span
+              class="string">"Node"</span
+            >, <span class="string">"TS"</span>],<br />&nbsp;&nbsp;result: <span
+              class="string">"Scalable & Robust"</span
+            >
+            <br />&#125;);
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-container">
+      {data.clientTypes.map(client => (
+        <div class="card">
+          <div class="card-icon">{client.icon}</div>
+          <h3>{client.title}</h3>
+          <p>{client.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="services-list">
+      {data.services.map(service => (
+        <div class="service-item">
+          <h4>{service.title}</h4>
+          <p>{service.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="cta-container">
+      <div class="cta-content">
+        <p class="cta-text">
+          {data.cta.text}
+          <br />
+          <span class="stack-highlight"
+            >Stack technique : {data.cta.stack}</span
+          >
+        </p>
+        <p class="cta-question">
+          {data.cta.question}
+        </p>
+      </div>
+      <div class="cta-action">
+        <a href="#contact" class="btn btn-primary">
+          <span class="btn-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+            >
+            Discuter de votre projet
+          </span>
+        </a>
+        <span class="response-time">(réponse sous 1h)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 4rem;
+  }
+
+  .about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 80% 20%,
+      rgba(44, 132, 255, 0.05),
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: #000;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-light);
+    box-shadow: 0 0 30px var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+  }
+
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .code-block {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: monospace;
+    position: relative;
+  }
+
+  .code-block::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    border: 1px solid var(--color-primary);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 12px;
+  }
+
+  .code-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .red { background: #ff5f56; }
+  .yellow { background: #ffbd2e; }
+  .green { background: #27c93f; }
+
+  .code-content {
+    color: #d4d4d4;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .keyword { color: #569cd6; }
+  .variable { color: #9cdcfe; }
+  .class { color: #4ec9b0; }
+  .string { color: #ce9178; }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px rgba(50, 224, 196, 0.1);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card h3 {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-item {
+    background: rgba(44, 132, 255, 0.05);
+    padding: 1.5rem;
+    border-left: 3px solid var(--color-secondary);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .service-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .service-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .cta-container {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border);
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stack-highlight {
+    color: var(--color-primary);
+    font-weight: 600;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .cta-question {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .cta-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .response-time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 900px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .intro-visual {
+        display: block;
+        margin-top: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cards-container {
+      grid-template-columns: 1fr;
+    }
+    .cta-container {
+        padding: 2rem 1.5rem;
+    }
+  }
+</style>

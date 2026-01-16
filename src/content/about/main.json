@@ -1,0 +1,37 @@
+{
+  "title": "Architecte de vos projets digitaux",
+  "hook": "Vous lancez un MVP, vous devez scaler votre application actuelle, ou vos outils montrent leurs limites ?",
+  "intro": "J’interviens tant pour structurer des projets naissants (Startups/PME) que pour renforcer des équipes sur des architectures complexes. Mon objectif : vous livrer un produit fiable immédiatement, mais conçu pour supporter votre croissance future.",
+  "experience": "Avec 7 ans d’expérience, j'ai acquis une rigueur technique au sein de leaders du marché (Adeo, Leroy Merlin, Decathlon) et sur des projets internationaux (Gaia-X).",
+  "clientTypes": [
+    {
+      "title": "Startups & PME",
+      "icon": "🚀",
+      "description": "Je vous apporte \"l'excellence technique\" dès le jour 1. Pas de bricolage : je construis des bases saines (Architecture propre, SEO ready) qui vous éviteront de tout recoder quand vous grandirez. Je suis fullstack, donc autonome de la base de données au pixel en front."
+    },
+    {
+      "title": "Grands Comptes",
+      "icon": "🏢",
+      "description": "Je maîtrise vos enjeux de volume, de dette technique (Legacy), de tests (TDD) et d'industrialisation (CI/CD, Docker) dans des environnements complexes."
+    }
+  ],
+  "services": [
+    {
+      "title": "Lancement de Produits (MVP)",
+      "description": "Développement rapide et robuste d'applications SaaS et B2B."
+    },
+    {
+      "title": "Refonte & Migration",
+      "description": "Modernisation d'applications vieillissantes vers des stacks React.js/Node modernes."
+    },
+    {
+      "title": "Infrastructure",
+      "description": "Mise en place d'API (REST/WebSocket) et de déploiements automatisés."
+    }
+  ],
+  "cta": {
+    "text": "Mon approche est clé en main : un code professionnel, documenté et stable, qui ne vous oblige pas à corriger sans cesse les mêmes bugs.",
+    "stack": "React.js, Next.js, Typescript et Node.js",
+    "question": "Vous cherchez un expert technique capable de donner un coup d'accélérateur sécurisé à votre projet ?"
+  }
+}
