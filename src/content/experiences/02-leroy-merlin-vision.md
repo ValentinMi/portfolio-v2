@@ -2,7 +2,7 @@
 company: "Leroy Merlin Vision 2035"
 position: "Développeur Front"
 period: "2025 - 2025"
-order: 1
+order: 2
 technologies: ["TypeScript", "React", "Tanstack", "Lumapss", "Playwright", "Vitest"]
 ---
 

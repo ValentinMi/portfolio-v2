@@ -2,7 +2,7 @@
 company: "Decathlon - Nemo"
 position: "Développeur Fullstack"
 period: "2021 - 2022"
-order: 4
+order: 5
 technologies: ["React", "Node.js", "GraphQL", "Playwright", "Vitest"]
 ---
 

@@ -2,7 +2,7 @@
 company: "Leroy Merlin - SEO"
 position: "Développeur Front"
 period: "2019 - 2020"
-order: 6
+order: 7
 technologies: ["NestJs", "MongoDB", "GCP"]
 ---
 

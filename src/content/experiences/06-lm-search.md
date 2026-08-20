@@ -2,7 +2,7 @@
 company: "Leroy Merlin - Opus Search"
 position: "Développeur Fullstack"
 period: "2020 - 2021"
-order: 5
+order: 6
 technologies: ["NestJs", "MongoDB", "GCP"]
 ---
 

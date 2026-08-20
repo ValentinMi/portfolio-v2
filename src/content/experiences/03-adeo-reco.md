@@ -2,7 +2,7 @@
 company: "Adeo Opus Recommendation"
 position: "Développeur Fullstack"
 period: "2024 - 2025"
-order: 2
+order: 3
 technologies: ["TypeScript", "Nest.js", "MongoDB", "Nx", "Docker", "Playwright", "Vitest"]
 ---
 

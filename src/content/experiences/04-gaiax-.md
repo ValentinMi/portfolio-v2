@@ -2,7 +2,7 @@
 company: "Gaia-X"
 position: "Développeur Fullstack"
 period: "2022 - 2024"
-order: 3
+order: 4
 technologies: ["React", "NextJs", "Node.js", "Cryptographie"]
 ---
 
